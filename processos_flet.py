@@ -72,6 +72,13 @@ def main(page: ft.Page):
     page.title = "Gerenciador de Processos"
     page.vertical_alignment = ft.MainAxisAlignment.START
 
+    # Mensagem que você deseja exibir
+    men_bug = """Encontramos alguns bugs relacionados à rolagem da interface. Para garantir uma melhor experiência, recomendamos evitar a criação excessiva de processos, pois isso pode afetar a visibilidade na rolagem, fazendo com que nem todos os processos apareçam corretamente. Estamos trabalhando para corrigir o problema. Agradecemos a compreensão!"""
+
+    # Exibe a mensagem de alerta na interface
+    page.add(ft.Text(men_bug, size=14, color=ft.colors.RED))
+
+
     def on_column_scroll(e: ft.OnScrollEvent):
         print(
             f"Type: {e.event_type}, pixels: {e.pixels}, min_scroll_extent: {e.min_scroll_extent}, max_scroll_extent: {e.max_scroll_extent}"
@@ -251,6 +258,7 @@ def main(page: ft.Page):
 
     # Configuração do layout da interface gráfica do aplicativo
     page.add(
+        
         # Adiciona uma coluna que organiza os elementos verticalmente
         ft.Column([
             # Dropdown para seleção de operações
